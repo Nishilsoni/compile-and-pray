@@ -3,7 +3,7 @@
   "displayName": "Compile and Pray",
   "description": "A sarcastic extension that plays dramatic sounds on terminal success/failure.",
   "version": "0.0.1",
-  "publisher": "local",
+  "publisher": "nishilsoni",
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -19,6 +19,10 @@
   ],
   "main": "./out/extension.js",
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nishilsoni/compile-and-pray.git"
+  },
   "contributes": {
     "commands": [
       {
