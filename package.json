@@ -1,0 +1,104 @@
+{
+  "name": "compile-and-pray",
+  "displayName": "Compile and Pray",
+  "description": "A sarcastic extension that plays dramatic sounds on terminal success/failure.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onTerminal",
+    "onCommand:compileAndPray.testSuccessSound",
+    "onCommand:compileAndPray.testErrorSound",
+    "onCommand:compileAndPray.toggleSounds"
+  ],
+  "main": "./out/extension.js",
+  "icon": "icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "compileAndPray.testSuccessSound",
+        "title": "Compile and Pray: Test Success Sound"
+      },
+      {
+        "command": "compileAndPray.testErrorSound",
+        "title": "Compile and Pray: Test Error Sound"
+      },
+      {
+        "command": "compileAndPray.toggleSounds",
+        "title": "Compile and Pray: Enable/Disable Sounds"
+      }
+    ],
+    "configuration": {
+      "title": "Compile and Pray",
+      "properties": {
+        "compileAndPray.successSoundPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to a custom success sound. Leave empty to use assets/success.mp3"
+        },
+        "compileAndPray.errorSoundPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to a custom error sound. Leave empty to use assets/error.mp3"
+        },
+        "compileAndPray.enableSounds": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable sound playback"
+        },
+        "compileAndPray.successKeywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "compiled successfully",
+            "build successful",
+            "done",
+            "finished",
+            "server running",
+            "listening on",
+            "ready"
+          ],
+          "description": "Keywords that indicate successful command output"
+        },
+        "compileAndPray.errorKeywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "error",
+            "failed",
+            "exception",
+            "build failed",
+            "compilation error",
+            "unhandled error"
+          ],
+          "description": "Keywords that indicate failed command output"
+        },
+        "compileAndPray.enableNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show humorous notifications on detected outcomes"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.4"
+  }
+}
