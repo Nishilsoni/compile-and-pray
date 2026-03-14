@@ -2,7 +2,7 @@
   "name": "compile-and-pray",
   "displayName": "Compile and Pray",
   "description": "A sarcastic extension that plays dramatic sounds on terminal success/failure.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "nishilsoni",
   "engines": {
     "vscode": "^1.90.0"
